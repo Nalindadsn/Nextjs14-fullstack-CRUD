@@ -22,6 +22,7 @@ import { FormSuccess } from "@/components/form-success";
 import { createUser, updateUser } from "@/actions/users-actions";
 import { Card } from "./ui/card";
 import toast from "react-hot-toast";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
 // import { register } from "@/actions/register";
 
 
@@ -102,12 +103,20 @@ export const UserForm = ({ userDetails }: { userDetails?: any }) => {
                 <FormItem>
                   <FormLabel>Role</FormLabel>
                   <FormControl>
-                    <Input
-                      {...field}
-                      disabled={isPending}
-                      placeholder="Role "
-                      type="role"
-                    />
+                    
+                    <Select  onValueChange={field.onChange} defaultValue={field.value}
+                      disabled={isPending}>
+                              <FormControl>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select a verified email to display" />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                <SelectItem value="supperAdmin">Super Admin</SelectItem>
+                <SelectItem value="admin">Admin</SelectItem>
+                <SelectItem value="user">User</SelectItem>
+                </SelectContent>
+                    </Select>
                   </FormControl>
                   <FormMessage />
                 </FormItem>
