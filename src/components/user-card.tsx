@@ -36,7 +36,7 @@ export function UserCard({ user }: { user: User }) {
         </span>
         </div>
         <div className="flex gap-x-2 justify-end">
-        <UserButtonDelete userId={user.id} />
+        <UserButtonDelete user={user} />
         <Link
           href={`/users/${user.id}/edit`}
           className={buttonVariants({ variant: "secondary" })}

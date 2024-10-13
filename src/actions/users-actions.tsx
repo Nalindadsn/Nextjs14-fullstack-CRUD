@@ -4,7 +4,7 @@ import * as z from "zod";
 import prisma from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { UserSchema } from "@/schemas";
+import { UserDeleteSchema, UserSchema } from "@/schemas";
 
 export async function createUser(values: z.infer<typeof UserSchema>) {
   const name = values.name;
@@ -31,21 +31,20 @@ revalidatePath("/");
   return { success: "User Created!" }
 }
 
-export async function removeUser(formData: FormData) {
+export async function removeUser(username: string) {
   "use server";
-  const userId = formData.get("userId")?.toString();
 
-  if (!userId) {
-    return;
+  if (!username) {
+    return { error: "username is required!" };
   }
 
   await prisma.user.delete({
     where: {
-      id: userId,
+      username: username,
     },
   });
-
-  redirect("/");
+revalidatePath("/");
+  return { success: "user deleted!" };
 }
 
 export async function updateUser(values: z.infer<typeof UserSchema>) {

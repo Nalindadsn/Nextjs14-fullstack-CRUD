@@ -12,3 +12,9 @@ export const UserSchema = z.object({
     message: "Name is required",
   }),
 });
+
+export const UserDeleteSchema = z.object({
+  username: z.string().min(3, {
+    message: "Name is required",
+  }),
+});

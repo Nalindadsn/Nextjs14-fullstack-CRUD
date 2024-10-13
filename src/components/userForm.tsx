@@ -54,7 +54,11 @@ export const UserForm = ({ userDetails }: { userDetails?: any }) => {
           if (data.success) {
             
           toast.success(data.success);
-          form.reset()
+          form.reset({
+            name:"",
+            role:values.role,
+            username:""
+          })
           }else{
 
             toast.error(data.error);
@@ -98,6 +102,13 @@ export const UserForm = ({ userDetails }: { userDetails?: any }) => {
                 <FormItem>
                   <FormLabel>Role</FormLabel>
                   <FormControl>
+
+
+
+
+
+
+                    
                     
                     <Select  onValueChange={field.onChange} defaultValue={field.value}
                       disabled={isPending}>
