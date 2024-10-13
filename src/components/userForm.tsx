@@ -27,8 +27,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 
 
 export const UserForm = ({ userDetails }: { userDetails?: any }) => {
-  const [error, setError] = useState<string | undefined>("");
-  const [success, setSuccess] = useState<string | undefined>("");
+ 
   const [isPending, startTransition] = useTransition();
 
   const form = useForm<z.infer<typeof UserSchema>>({
@@ -41,8 +40,6 @@ export const UserForm = ({ userDetails }: { userDetails?: any }) => {
   });
 
   const onSubmit = (values: z.infer<typeof UserSchema>) => {
-    setError("");
-    setSuccess("");
     startTransition(() => {
       if(userDetails) {
         values.id=userDetails.id;
@@ -141,8 +138,6 @@ export const UserForm = ({ userDetails }: { userDetails?: any }) => {
               )}
             />
           </div>
-          <FormError message={error} />
-          <FormSuccess message={success} />
           <Button
             disabled={isPending}
             type="submit"
