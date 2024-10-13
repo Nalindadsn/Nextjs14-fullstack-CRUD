@@ -1,12 +1,11 @@
 "use client";
-
 import * as z from "zod";
-import { useState, useTransition } from "react";
+import {  useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { UserSchema } from "@/schemas";
-import { Input } from "@/components/_ui/input";
+import { Input } from "@/components/ui/input";
 import {
   Form,
   FormControl,
@@ -15,15 +14,11 @@ import {
   FormLabel,
   FormMessage,  
 } from "@/components/ui/form";
-// import { CardWrapper } from "@/components/auth/card-wrapper"
-import { Button } from "@/components/_ui/button";
-import { FormError } from "@/components/form-error";
-import { FormSuccess } from "@/components/form-success";
+import { Button } from "@/components/ui/button";
 import { createUser, updateUser } from "@/actions/users-actions";
 import { Card } from "./ui/card";
 import toast from "react-hot-toast";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
-// import { register } from "@/actions/register";
 
 
 export const UserForm = ({ userDetails }: { userDetails?: any }) => {
@@ -46,8 +41,11 @@ export const UserForm = ({ userDetails }: { userDetails?: any }) => {
         
       updateUser(values)
       .then((data: any) => {
-        toast.success("updated");
+        console.log(data)
+        toast.success("user updated");
       });
+
+
       }else{
 
         createUser(values)
