@@ -9,7 +9,11 @@ async function HomePage({searchParams}:{
     id: string
   }
 }) {
-  const users = await prisma.user.findMany();
+  const users = await prisma.user.findMany({
+    orderBy:{
+      createdAt:"desc"
+    }
+  });
 
   return (<div className="lg:flex lg:space-x-4 max-w-screen-lg mx-auto">
     {/* {JSON.stringify(searchParams?id)} */}

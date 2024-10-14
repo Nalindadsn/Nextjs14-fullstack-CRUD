@@ -30,13 +30,16 @@ export function UserButtonDelete({ user }: { user: any }) {
     },
   });
   const onSubmit = (values:z.infer<typeof UserDeleteSchema>) => {
+  
     startTransition(() => {
       if(user?.username===values?.username){
+
         
       removeUser(values?.username)
       .then((data: any) => {
         console.log(data)
         toast.error("user deleted");
+        form.reset({});
         setOpen(false)
       });
       }else{

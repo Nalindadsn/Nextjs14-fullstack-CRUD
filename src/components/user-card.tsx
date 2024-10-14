@@ -19,18 +19,18 @@ export function UserCard({ user }: { user: User }) {
         <CardTitle>{user.name}</CardTitle>
         <Badge
           className={clsx({
-            "bg-red-500 text-white": user.username === "high",
-            "bg-yellow-500": user.username === "medium",
-            "bg-green-500": user.username === "low",
-            "bg-blue-500": user.username === "urgent",
+            "bg-red-500 text-white": user.role === "",
+            "bg-yellow-500": user.role === "user",
+            "bg-green-500": user.role === "supperAdmin",
+            "bg-blue-500": user.role === "admin",
           })}
         >
-          {user.username}
+          {user.role}
         </Badge>
       </CardHeader>
       <CardContent className="flex flex-col">
         <div className="w-full">
-        <p>{user.role}</p>
+        <p>Username: {user.username}</p>
         <span className="text-slate-600">
           {new Date(user.createdAt).toLocaleDateString()}
         </span>
