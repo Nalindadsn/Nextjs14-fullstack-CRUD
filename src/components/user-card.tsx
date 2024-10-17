@@ -11,8 +11,11 @@ import { User } from "@prisma/client";
 import clsx from "clsx";
 import { UserButtonDelete } from "./user-button-delete";
 import Link from "next/link";
+import moment from 'moment'
 
 export function UserCard({ user }: { user: User }) {
+const createdAt=moment(user.createdAt).fromNow()
+const updatedAt=moment(user.updatedAt).fromNow()
   return (
     <Card className="mb-2">
       <CardHeader className="flex flex-row justify-between ">
@@ -32,8 +35,10 @@ export function UserCard({ user }: { user: User }) {
         <div className="w-full">
         <p>Username: {user.username}</p>
         <span className="text-slate-600">
-          {new Date(user.createdAt).toLocaleDateString()}
-        </span>
+          {moment(user.createdAt).fromNow()}<br/>
+          <span className="text-sm">{createdAt!==updatedAt && `updated at :  ${moment(user.updatedAt).format('MMMM Do YYYY, h:mm:ss a')}`}</span>
+         
+          </span>
         </div>
         <div className="flex gap-x-2 justify-end">
         <UserButtonDelete user={user} />
