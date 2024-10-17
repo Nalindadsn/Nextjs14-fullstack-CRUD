@@ -25,7 +25,7 @@ async function HomePage({searchParams}:{
 {/* ----- */}
 {/* <UserForm/> */}
     <div className="w-full ">
-      <h2 className="text-2xl font-bold my-3 border-b">User List</h2>
+      <h2 className="text-2xl font-bold my-3 border-b flex justify-between">User List<span>{`(${users.length>9?users.length:"0"+users.length})`}</span></h2>
       
       {users.map((user) => (
         <UserCard user={user} key={user.id} />
