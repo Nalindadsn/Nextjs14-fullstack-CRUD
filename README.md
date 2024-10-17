@@ -8,6 +8,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ## env
 DATABASE_URL=
 
+
 ## Getting Started
 
 First, run the development server:
