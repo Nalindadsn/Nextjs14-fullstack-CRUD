@@ -1,5 +1,6 @@
 import { UserForm } from "@/components/userForm";
 import prisma from "@/lib/prisma";
+import { User } from "lucide-react";
 import { redirect } from "next/navigation";
 
 export default async function UserPageEdit({
@@ -20,8 +21,15 @@ export default async function UserPageEdit({
   }
 
   return (
-    <div className="flex justify-center items-center h-screen lg:w-1/2 mx-auto">
-      <UserForm userDetails={user} />
+    <div className=" lg:w-1/2 mx-auto">
+      <div>
+        <h2 className="text-2xl font-bold mt-8">Update User</h2>
+        <p className="flex justify-end">
+          <User className="w-5 h-5 mr-2" />
+          {user?.name}
+        </p>
+        <UserForm userDetails={user} />
+      </div>
     </div>
   );
 }
