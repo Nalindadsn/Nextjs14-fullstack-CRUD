@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { ModeToggle } from "./theme-toggle-button";
-import { buttonVariants } from "./ui/button";
 
 function Navbar() {
   return (
