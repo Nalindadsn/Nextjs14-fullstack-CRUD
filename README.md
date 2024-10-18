@@ -1,19 +1,30 @@
 Nextjs 14 CRUD with best practices
 -server action
--react-hooks-form 
+
 https://github.com/Nalindadsn/Nextjs14-fullstack-CRUD
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## env
+
 DATABASE_URL=
 
+## orm
+
+Prisma
+
+## UI Lib
+
+ShadcnUI
+
+## packages
+
+react-hook-form
+lucide-icon
 
 ## Getting Started
 
 First, run the development server:
-
-
 
 ```bash
 npm run dev
