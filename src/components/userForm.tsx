@@ -25,8 +25,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./ui/select";
+import { User } from "@prisma/client";
 
-export const UserForm = ({ userDetails }: { userDetails?: any }) => {
+export const UserForm = ({ userDetails }: { userDetails?: User }) => {
   const [isPending, startTransition] = useTransition();
 
   const form = useForm<z.infer<typeof UserSchema>>({

@@ -10,7 +10,7 @@ export default async function UserPageEdit({
     id: string;
   };
 }) {
-  const user = await prisma.user.findFirst({
+  const user = await prisma.user.findUnique({
     where: {
       id: params.id,
     },
@@ -27,6 +27,7 @@ export default async function UserPageEdit({
         <p className="flex justify-end">
           <User className="w-5 h-5 mr-2" />
           {user?.name}
+          {JSON.stringify(user)}
         </p>
         <UserForm userDetails={user} />
       </div>
